@@ -3,6 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+
+//conección a BD en mongoose
+mongoose.connect('mongodb+srv://super:a4F9KrlKfh28QBRs@cluster0-u7nin.mongodb.net/Universidad?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => { console.log('Conectado DB mongo')})
+.catch(err => console.log(err));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
