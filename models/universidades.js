@@ -11,4 +11,4 @@ var universidadesSchema= Schema({
   prestigio: String  //esta wea no me queda claro como se mide el nivel, asi que lo pongo String xd
 });
 
-module.exports = mongoose.model('Universides', universidadesSchema);
+module.exports = mongoose.model('Universidades', universidadesSchema);
