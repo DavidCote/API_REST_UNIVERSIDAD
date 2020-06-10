@@ -1,7 +1,7 @@
 var mongoose =require('mongoose');
 var Schema = mongoose.Schema;
 
-var universidadlSchema= Schema({
+var universidadesSchema= Schema({
   nombreCompleto: String,
   siglas: String,
   nivel: String,
@@ -11,4 +11,4 @@ var universidadlSchema= Schema({
   prestigio: String  //esta wea no me queda claro como se mide el nivel, asi que lo pongo String xd
 });
 
-module.exports = mongoose.model('Marvel', marvelSchema);
+module.exports = mongoose.model('Universides', universidadesSchema);
