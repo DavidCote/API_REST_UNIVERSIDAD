@@ -5,8 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
+//variables de entorno
+require('dotenv').config({path: 'variables.env'});
+
 //conección a BD en mongoose
-mongoose.connect('mongodb+srv://super:a4F9KrlKfh28QBRs@cluster0-u7nin.mongodb.net/Universidad?retryWrites=true&w=majority', {
+mongoose.connect(process.env.URL_MONGOD, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => { console.log('Conectado DB mongo')})
@@ -19,7 +22,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
