@@ -1,7 +1,7 @@
 var mongoose =require('mongoose');
 var Schema = mongoose.Schema;
 
-var UniversidaSchema= Schema({
+var UniversidadesSchema= Schema({
   nombreCompleto: String,
   siglas: String,
   nivel: {
