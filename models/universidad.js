@@ -1,7 +1,7 @@
 var mongoose =require('mongoose');
 var Schema = mongoose.Schema;
 
-var UniversidadesSchema= Schema({
+var universidadSchema= Schema({
   nombreCompleto: String,
   siglas: String,
   nivel: {
@@ -12,9 +12,12 @@ var UniversidadesSchema= Schema({
   },
   rankingNacional: Number ,
   numeroDeAlumnos: Number,
-  conPosgrado: Boolean,
+  conPosgrado: {
+    disponible: Boolean,
+    cantidad: Number
+  },
   prestigio: Number,
   imagen: String
 });
 
-module.exports = mongoose.model('Universidad', universidadesSchema);
+module.exports = mongoose.model('Universidad', universidadSchema);
