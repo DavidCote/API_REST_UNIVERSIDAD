@@ -15,13 +15,47 @@
   </nav>
 
 <div class="alert alert-primary" role="alert" margin-top="100px">
-<p>{{data}}</p>
+  <form action="/siglas" method="patch">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Siglas</label>
+    <small id="emailHelp" class="form-text text-muted">Osease pa buscar la madre esa</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">El json editado completo o no jala esta wea</label>
+    <input type="text" class="form-control" id="nombreCompleto" placeholder="nombreCompleto" name="nombreCompleto">
+    <input type="text" class="form-control" placeholder="siglas" name="siglas">
+    <input type="text" class="form-control" placeholder="Licenciatura" name="nivel['Licenciatura']">
+    <input type="text" class="form-control" placeholder="Maestría" name="nivel['Maestría']">
+    <input type="text" class="form-control" placeholder="Doctorado" name="nivel['Doctorado']">
+    <input type="text" class="form-control" placeholder="PosDoctorado" name="nivel['PosDoctorado']">
+    <input type="text" class="form-control" placeholder="rankingNacional" name="rankingNacional">
+    <input type="text" class="form-control" placeholder="numeroDeAlumnos" name="numeroDeAlumnos">
+    <input type="text" class="form-control" placeholder="Posgrado Disponible" name="conPosgrado['disponible']">
+    <input type="text" class="form-control" placeholder="Posgrado Cantidad" name="conPosgrado['cantidad']">
+    <input type="text" class="form-control" placeholder="prestigio" name="prestigio">
+    <input type="text" class="form-control" placeholder="imagen" name="imagen">
+    <input type="text" class="form-control" placeholder="id" name="_id">
+    <input type="text" class="form-control" placeholder="v" name="_v">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 </div>
+
+<!-- ignorar esta funcion -->
+<script>
+function getSiglas() {
+  var x = document.getElementById("101").value;
+  window.location = "http://localhost:3000/editar/"+x;
+}
+</script>
 
 <div class="alert alert-primary" role="alert" margin-top="100px">
   <div>
-    <p>{{data2}}</p>
+    <p>{{data}}</p>
   </div>
 </div>
-
-<a href="/" class="btn btn-success">boton</a>
+<a href="/" class="btn btn-success">Index</a>
+<!-- ignorar este boton que era para la funcion -->
+<button type="submit" class="btn btn-success" onclick="getSiglas()">Listo</button>
