@@ -15,13 +15,17 @@ router.get('/', function(req, res, next) {
   });
 });
 
+function getJson(){
+
+}
+
 router.patch('/:siglas', function(req, res, next) { 
   univ.findOneAndUpdate(
   	{'siglas': req.params.siglas},{$set:req.body},
   	(err,datos)=>{
   		if(err) res.status(500).json({error:"Error"});
   		if(datos){
-			//res.render('editar', {data:datos});
+			//res.render('editar', {data:siglas});
   			res.status(200).json(datos);
   		}
   		});
