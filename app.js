@@ -16,7 +16,8 @@ mongoose.connect(process.env.URL_MONGOD, {
 .catch(err => console.log(err));
 
 var indexRouter = require('./routes/index');
-var editarRouter = require('./routes/editar');
+var modificarRouter = require('./routes/modificar');
+var eliminarRouter = require('./routes/eliminar');
 var apiRouter = require('./routes/universidad')
 var formRouter = require('./routes/agregar');
 
@@ -34,7 +35,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/editar', editarRouter);
+app.use('/modificar', modificarRouter);
+app.use('/eliminar', eliminarRouter);
 app.use('/api', apiRouter);
 app.use('/nuevo', formRouter);
 

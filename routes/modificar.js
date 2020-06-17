@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var request = require('request');
 
 var mongoose = require('mongoose');
 var univ = require('../models/universidad');
@@ -9,21 +10,12 @@ router.get('/', function(req, res, next) {
   univ.find({},(err,datos)=>{
   	if(err) res.status(500).json({error:"Error"});
   	if(datos){
-		res.render('editar', {data:datos});
-  		//res.status(200).json(datos);
+		res.render('modificar', {data:datos});
+  		//res.status(200).json(datos);  
   	}
   });
 });
 
-router.get('/modificar', function(req, res, next) {
-  univ.find({},(err,datos)=>{
-  	if(err) res.status(500).json({error:"Error"});
-  	if(datos){
-		res.render('modificar', {data:datos});
-  		//res.status(200).json(datos);
-  	}
-  });
-});
 router.post('/m', function(req, res, next) { //metodo que modifica
 	//console.log(req.body);
   univ.findOneAndUpdate(
@@ -37,53 +29,33 @@ router.post('/m', function(req, res, next) { //metodo que modifica
   	'numeroDeAlumnos':  req.body.numeroDeAlumnos,
     'conPosgrado.disponible':  req.body.disponible,
     'conPosgrado.cantidad':  req.body.cantidad,
-  	'prestigio':  req.body.prestigio,
-  	'imagen':  req.body.imagen},
+  	'prestigio':  req.body.prestigio},
   	(err,datos)=>{
   		if
   		(err) res.status(500).json({error:"Error"});	
   		if(datos){
-			res.render('editar', {data:datos});
-  			//res.status(200).json(datos);
+			//res.render('editar', {data:datos});
+  		//res.status(200).json(datos);
+        request.get(process.env.HOST,(err,response,body)=>{
+          if(err) res.status(404).json({mensaje:"Error al consumir universidad"});
+          else res.render('index',{'info':JSON.parse(body)});
+        })
   		}
   		});
-});
-router.get('/delete', function(req, res, next) {
-  univ.find({},(err,datos)=>{
-  	if(err) res.status(500).json({error:"Error"});
-  	if(datos){
-		res.render('delete', {data:datos});
-  		//res.status(200).json(datos);
-  	}
-  });
 });
 
-router.get('/d', function(req, res, next) { //metodo que elimina
-	//console.log(req.body);
-  univ.deleteOne(
-  	{'nombreCompleto': req.body.nombreCompleto},
-  	(err,datos)=>{
-  		if
-  		(err) res.status(500).json({error:"Error"});	
-  		if(datos){
-			res.render('editar', {data:datos});//de vuelta a la base de datos
-  			//res.status(200).json(datos);
-  		}
-  		});
-});
+
 router.patch('/:siglas', function(req, res, next) { 
   univ.findOneAndUpdate(
   	{'siglas': req.params.siglas},{$set:req.body},
   	(err,datos)=>{
   		if(err) res.status(500).json({error:"Error"});
   		if(datos){
-			res.render('editar', {data:siglas});
-  			//res.status(200).json(datos);
+			//res.render('editar', {data:siglas});
+  			res.status(200).json(datos);
   		}
   		});
 });
-
-
 
 
 module.exports = router;
