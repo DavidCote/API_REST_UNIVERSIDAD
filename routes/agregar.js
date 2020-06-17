@@ -4,7 +4,7 @@ const Universidad = require('../models/universidad');
 const mongoose = require('mongoose');
 
 router.get('/', async(req, res)=>{
-  res.render('agregar',{mensaje:"placeholder"});
+  res.render('agregar',{mensaje:"placeholder",});
 });
 
 router.post('/agregar_nuevo', async(req, res)=>{
@@ -12,19 +12,18 @@ router.post('/agregar_nuevo', async(req, res)=>{
     nombreCompleto: req.body.nombreCompleto,
     siglas: req.body.siglas,
     nivel:{
-      Licenciatura: req.body.Licenciatura,
-      Maestria: req.body.Maestria,
-      Doctorado: req.body.Doctorado,
-      PosDoctorado: req.body.PosDoctorado,
+      Licenciatura: Boolean(req.body.Licenciatura),
+      Maestria: Boolean(req.body.Maestria),
+      Doctorado: Boolean(req.body.Doctorado),
+      PosDoctorado: Boolean(req.body.PosDoctorado),
     },
     rankingNacional: req.body.rankingNacional,
     numeroDeAlumnos: req.body.numeroDeAlumnos,
     conPosgrado:{
-      disponible: req.body.disponible,
+      disponible: Boolean(req.body.disponible),
       cantidad:req.body.cantidad,
     },
     prestigio: req.body.prestigio,
-    imagen: req.body.imagen
   })
   await newUniversidad.save((error, uni)=>{
     if(error){

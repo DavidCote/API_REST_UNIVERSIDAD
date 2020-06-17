@@ -17,7 +17,6 @@ var universidadSchema= Schema({
     cantidad: Number
   },
   prestigio: Number,
-  imagen: String
 });
 
 module.exports = mongoose.model('Universidad', universidadSchema);
