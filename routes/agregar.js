@@ -1,4 +1,6 @@
 var express = require('express');
+var request = require('request');
+
 const router = express.Router();
 const Universidad = require('../models/universidad');
 const mongoose = require('mongoose');
@@ -24,13 +26,16 @@ router.post('/agregar_nuevo', async(req, res)=>{
       cantidad:req.body.cantidad,
     },
     prestigio: req.body.prestigio,
-    imagen: req.body.imagen
   })
   await newUniversidad.save((error, uni)=>{
     if(error){
       res.status(404).json({mensaje: "Fallo al guardar"});
     }else{
-      res.status(201).json(uni);
+      //res.status(201).json(uni);
+      request.get(process.env.HOST,(err,response,body)=>{
+          if(err) res.status(404).json({mensaje:"Error al consumir universidad"});
+          else res.render('index',{'info':JSON.parse(body)});
+      })
     }
   });
 });
