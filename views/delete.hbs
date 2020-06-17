@@ -6,21 +6,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="/">Inicio</a>
-        <a class="nav-item nav-link" href="/users">Nuevo</a>
+        <a class="nav-item nav-link" href="/">Inicio</a>
+        <a class="nav-item nav-link" href="/nuevo">Nuevo</a>
         <a class="nav-item nav-link" href="/editar">Editar</a>
         <a class="nav-item nav-link" href="/editar/modificar">Modificar</a>
-        <a class="nav-item nav-link" href="/editar/delete">Eliminar</a>
+        <a class="nav-item nav-link active" href="/editar/delete">Eliminar</a>
       </div>
     </div>
   </nav>
 
 <div class="alert alert-primary" role="alert" margin-top="100px">
-  <label>Llena los campos</label> 
-  <form action= "/editar/d" method="POST"> 
+  <label>Llena los campos</label>
+  <form action= "/editar/d" method="POST">
   <div class="form-group">
    <input type="text" class="form-control"  placeholder="nombre de la universidad a eliminar" id="nombreCompleto" name="nombreCompleto"></div>
-  
+
 
   <button type="submit" class="btn btn-primary">Mandar</button>
 </form>
