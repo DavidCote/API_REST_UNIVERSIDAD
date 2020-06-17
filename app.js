@@ -18,6 +18,8 @@ mongoose.connect(process.env.URL_MONGOD, {
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var editarRouter = require('./routes/editar');
+var agregarRouter = require('./routes/universidad')
+var formRouter = require('./routes/agregar');
 
 var app = express();
 
@@ -28,14 +30,17 @@ app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/api', indexRouter);
 app.use('/users', usersRouter);
 app.use('/editar', editarRouter);
-app.use('/add', require('./routes/universidad'));
+app.use('/add', agregarRouter);
+app.use('/prueba', formRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
