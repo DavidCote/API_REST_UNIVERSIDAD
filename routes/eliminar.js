@@ -11,8 +11,12 @@ router.get('/', function(req, res, next) {
   univ.find({},(err,datos)=>{
   	if(err) res.status(500).json({error:"Error"});
   	if(datos){
-		res.render('eliminar', {data:datos});
-  		//res.status(200).json(datos);  
+		//res.render('eliminar', {data:datos});
+  		//res.status(200).json(datos);
+  		request.get(process.env.HOST,(err,response,body)=>{
+			if(err) res.status(404).json({mensaje:"Error al consumir universidad"});
+			else res.render('eliminar',{'info':JSON.parse(body)});
+		})
   	}
   });
 });

@@ -22,13 +22,21 @@
 
   <button type="submit" class="btn btn-primary">Mandar</button>
 </form>
-
 </div>
 
-<div class="alert alert-primary" role="alert" margin-top="100px">
-  <div>
-    <p>{{data}}</p>
-  </div>
+<table class="table table-bordered">
+          <thead>
+          <tr>
+               <th > NOMBRES DE LAS UNIVERSIDADES</th>
+          </tr>
+          </thead>
+    <tbody>
+<div class = "container-fluid">
+  {{#each info}}
+      <tr>
+      <th >{{nombreCompleto}}</th>
+    </tr>
+     {{/each}}
 </div>
-
-
+  </tbody>
+</table>

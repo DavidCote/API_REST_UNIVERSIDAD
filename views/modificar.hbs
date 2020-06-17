@@ -18,6 +18,11 @@
   <h4 class="text-uppercase text-center">Modificar universidad</h4>
   <form action="/modificar/m" method="POST" class="form-horizontal">
     <div class="form-group">
+      <label for="nombreCompleto">ID (este valor no es editable):</label>
+      <input type="text" id="_id" name="_id" class="form-control" placeholder="ID"
+      autofocus>
+    </div>
+    <div class="form-group">
       <label for="nombreCompleto">Nombre:</label>
       <input type="text" id="nombreCompleto" name="nombreCompleto" class="form-control" placeholder="Nombre Completo"
       autofocus>
@@ -92,9 +97,22 @@
 </form>
 </div>
 -->
-<div class="alert alert-primary" role="alert" margin-top="100px">
-  <div>
-    <p>{{data}}</p>
-  </div>
 
-
+<table class="table table-bordered">
+          <thead>
+          <tr>
+            <th scope="col"> #ID </th>
+               <th scope="col"> Nombre completo </th>
+          </tr>
+          </thead>
+    <tbody>
+<div class = "container-fluid">
+  {{#each info}}
+      <tr>
+      <th scope="row">{{_id}}</th>
+      <td>{{nombreCompleto}}</td>
+    </tr>
+     {{/each}}
+</div>
+  </tbody>
+</table>

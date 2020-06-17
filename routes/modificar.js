@@ -10,8 +10,12 @@ router.get('/', function(req, res, next) {
   univ.find({},(err,datos)=>{
   	if(err) res.status(500).json({error:"Error"});
   	if(datos){
-		res.render('modificar', {data:datos});
-  		//res.status(200).json(datos);  
+		//res.render('modificar', {data:datos});
+  		//res.status(200).json(datos);
+          request.get(process.env.HOST,(err,response,body)=>{
+              if(err) res.status(404).json({mensaje:"Error al consumir universidad"});
+              else res.render('modificar',{'info':JSON.parse(body)});
+          })
   	}
   });
 });
@@ -19,8 +23,9 @@ router.get('/', function(req, res, next) {
 router.post('/m', function(req, res, next) { //metodo que modifica
 	//console.log(req.body);
   univ.findOneAndUpdate(
-  	{'nombreCompleto': req.body.nombreCompleto},
-  	{'siglas':  req.body.siglas,
+  	{'_id': req.body._id},
+  	{'nombreCompleto': req.body.nombreCompleto,
+    'siglas':  req.body.siglas,
     'nivel.Licenciatura':  req.body.Licenciatura,
     'nivel.Maestria':  req.body.Maestria,
     'nivel.Doctorado':  req.body.Doctorado,
@@ -43,8 +48,6 @@ router.post('/m', function(req, res, next) { //metodo que modifica
   		}
   		});
 });
-
-
 router.patch('/:siglas', function(req, res, next) { 
   univ.findOneAndUpdate(
   	{'siglas': req.params.siglas},{$set:req.body},
@@ -56,6 +59,4 @@ router.patch('/:siglas', function(req, res, next) {
   		}
   		});
 });
-
-
 module.exports = router;
