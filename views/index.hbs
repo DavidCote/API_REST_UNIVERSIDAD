@@ -8,7 +8,6 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link active" href="/">Inicio</a>
         <a class="nav-item nav-link" href="/nuevo">Nuevo</a>
-        <a class="nav-item nav-link" href="/users">Nuevo</a>
         <a class="nav-item nav-link" href="/modificar">Modificar</a>
         <a class="nav-item nav-link" href="/eliminar">Eliminar</a>
 
@@ -16,16 +15,15 @@
     </div>
   </nav>
 
-<div class="alert alert-primary" role="alert" margin-top="100px">
-<p>Bienvenido</p>
-
+<div class="alert alert-info" role="alert" margin-top="25%">
+<p class="text-center">Catalogo de universidades</p>
 </div>
 
 
   <table class="table table-bordered">
           <thead>
           <tr>
-               <th scope="col"> #ID </th>
+               <th scope="col"> # </th>
                <th scope="col"> Nombre completo </th>
                <th scope="col"> Siglas</th>
                <th scope="col"> Nivel/Licenciatura </th>
@@ -46,7 +44,7 @@
   {{#each info}}
 
       <tr>
-      <th scope="row">TU MAMA</th>
+      <th scope="row">{{@index}}</th>
       <td>{{nombreCompleto}}</td>
       <td>{{siglas}}</td>
       <td>
@@ -85,7 +83,7 @@
       {{/if}}</td>
       <td>{{conPosgrado.cantidad}}</td>
       <td>{{prestigio}}</td>
- 
+
     </tr>
      {{/each}}
 </div>
