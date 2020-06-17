@@ -31,17 +31,29 @@
       <label for="siglas">Siglas:</label>
       <input type="text" id="siglas" name="siglas" class="form-control" placeholder="Siglas">
     </div>
-    <div class= "form-gruop row ">
+
+    <div class= "form-gruop ">
       <p><label for=""> Nivel:</label></p>
-      <p><label for="Licenciatura" class="col-2 col-form-label"> Licenciatura</label>
-      <input type="text" placeholder="SI/NO" class="form-control" id="Licenciatura" name="Licenciatura">
-      <label for="" class="col-2 col-form-label"> Maestria</label>
-      <input type="text" placeholder="SI/NO" class="form-control" id="Maestria" name="Maestria">
-      <label for="" class="col-2 col-form-label"> Doctorado</label>
-      <input type="text" placeholder="SI/NO" class="form-control" id="Doctorado" name="Doctorado">
-      <label for="" class="col-2 col-form-label"> PosDoctorado</label>
-      <input type="text" placeholder="SI/NO" class="form-control" id="PosDoctorado" name="PosDoctorado"></p>
+      <p>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="Licenciatura" name="Licenciatura" @checked={{this.Licenciatura}}>
+          <label for="Licenciatura" class="form-check-label">Licenciatura</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="Maestria" name="Maestria" @checked={{this.Maestria}}>
+          <label for="Licenciatura" class="form-check-label">Maestria</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="Doctorado" name="Doctorado" @checked={{this.Doctorado}}>
+          <label for="Licenciatura" class="form-check-label">Doctorado</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="PosDoctorado" name="PosDoctorado" @checked={{this.PosDoctorado}}>
+          <label for="Licenciatura" class="form-check-label">PosDoctorado</label>
+        </div>
+        </p>
     </div>
+
     <div class="form-group">
       <label for="rankingNacional">Ranking Nacional:</label>
       <input type="text" id="rankingNacional" name="rankingNacional" class="form-control" placeholder="Ranking Nacional">
@@ -50,13 +62,18 @@
       <label for="numeroDeAlumnos">Número de alumnos:</label>
       <input type="text" class="form-control" placeholder="" id="numeroDeAlumnos" name="numeroDeAlumnos">
     </div>
-    <div class= "form-gruop row">
+
+    <div class= "form-gruop">
       <p><label for=""> Con posgrado:</label></p>
-      <p><label for="disponible" class="col-2 col-form-label"> Disponible </label>
-      <input type="text" placeholder="SI/NO"  class="form-control" id="disponible" name="disponible">
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="disponible" name="disponible" @checked={{this.disponible}}>
+        <label for="disponible" class="form-check-label">Disponible</label>
+      </div>
       <label for="" class="col-2 col-form-label"> cantidad </label>
       <input type="text" placeholder=""  class="form-control" id="cantidad" name="cantidad"></p>
     </div>
+    
     <div class="form-group">
       <label for="prestigio">Prestigio:</label>
       <input type="text" class="form-control" placeholder="" id="prestigio" name="prestigio">
@@ -67,36 +84,7 @@
   </form>
 </div>
 
-<!--
-<div class="alert alert-primary" role="alert" margin-top="100px">
-  <label>Ingresa los datos de la escuela a modificar</label>
-  <form action= "/editar/m" method="POST">
-  <div class="form-group">
-   <input type="text" class="form-control"  placeholder="nombreCompleto" id="nombreCompleto" name="nombreCompleto"></div>
-  <div class="form-group">
-    <input type="text" class="form-control"  placeholder="siglas" id="siglas" name="siglas"></div>
-  <div class="form-group">
-    <input type="text" class="form-control"  placeholder="Licenciatura" id="Licenciatura" name="Licenciatura"></div>
-   <div class="form-group">
-    <input type="text" class="form-control"  placeholder="Maestría" id="Maestria" name="Maestria"></div>
-   <div class="form-group">
-    <input type="text" class="form-control"  placeholder="Doctorado" id="Doctorado" name="Doctorado"></div>
-  <div class="form-group">
-    <input type="text" class="form-control"  placeholder="PosDoctorado" id="PosDoctorado" name="PosDoctorado"></div>
-  <div class="form-group">
-    <input type="text" class="form-control"  placeholder="rankingNacional" id="rankingNacional" name="rankingNacional"></div>
-  <div class="form-group">
-    <input type="text" class="form-control"  placeholder="numeroDeAlumnos" id="numeroDeAlumnos" name="numeroDeAlumnos"></div>
-  <div class="form-group">
-    <input type="text" class="form-control"  placeholder="Posgrado Disponible" id="disponible"  name="disponible"></div>
-  <div class="form-group">
-    <input type="text" class="form-control"  placeholder="Posgrado Cantidad" id="cantidad" name="cantidad"></div>
-  <div class="form-group">
-    <input type="text" class="form-control"  placeholder="prestigio" id="prestigio" name="prestigio"></div>
-  <button type="submit" class="btn btn-primary">Mandar</button>
-</form>
-</div>
--->
+
 <table class="table table-bordered">
           <thead>
           <tr>
