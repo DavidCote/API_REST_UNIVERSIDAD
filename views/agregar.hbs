@@ -1,62 +1,74 @@
-<section class= "container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+    <a class="navbar-brand" href="#">Universidad</a>
 
-  <h3 class="text-uppercase text-center">Formulario de universidad</h3>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/">Inicio</a>
+      <a class="nav-item nav-link active" href="/prueba">Nuevo</a>
+      <a class="nav-item nav-link" href="/editar">Editar</a>
 
-
-
-<div class="row">
- <div class="col-6"
-  <form action "/y" method="POST">
-    <div class= "form-gruop row">
-      <p><label for="" class="col-2 col-form-label"> Nombre completo:</label>
-      <input type="text" placeholder="" class="form-control col-10" name="Nombre"></p>
-      </div>
-    <div class= "form-gruop row">
-      <p><label for="nombre"class="col-2 col-form-label"> Siglas:</label>
-      <input type="text" placeholder=""class="form-control col-10" name="Siglas"> </p>
     </div>
-    <div class= "form-gruop row">
+  </div>
+</nav>
+
+
+
+<div class="container">
+  <h4 class="text-uppercase text-center">Formulario de universidad</h4>
+  <form action="/add/agregar_nuevo" method="POST" class="form-horizontal">
+    <div class="form-group">
+      <label for="nombreCompleto">Nombre:</label>
+      <input type="text" name="nombreCompleto" class="form-control" placeholder="Nombre Completo"
+      autofocus>
+    </div>
+    <div class="form-group">
+      <label for="siglas">Siglas:</label>
+      <input type="text" name="siglas" class="form-control" placeholder="Siglas">
+    </div>
+
+    <div class= "form-gruop row ">
       <p><label for=""> Nivel:</label></p>
-      <p><label for="" class="col-2 col-form-label"> Licenciatura</label>
-      <input type="text" placeholder="SI/NO" class="form-control" name="nivel['Licenciatura']">
+      <p><label for="Licenciatura" class="col-2 col-form-label"> Licenciatura</label>
+      <input type="text" placeholder="SI/NO" class="form-control" name="Licenciatura">
       <label for="" class="col-2 col-form-label"> Maestria</label>
-      <input type="text" placeholder="SI/NO" class="form-control name="nivel['Maestria']" ">
+      <input type="text" placeholder="SI/NO" class="form-control" name="Maestria">
       <label for="" class="col-2 col-form-label"> Doctorado</label>
-      <input type="text" placeholder="SI/NO" class="form-control name="nivel['Doctorado']"">
+      <input type="text" placeholder="SI/NO" class="form-control" name="Doctorado">
       <label for="" class="col-2 col-form-label"> PosDoctorado</label>
-      <input type="text" placeholder="SI/NO" class="form-control name="nivel['PosDoctorado']""></p>
+      <input type="text" placeholder="SI/NO" class="form-control" name="PosDoctorado"></p>
     </div>
-    <div class= "form-gruop row">
-      <p><label for="" class="col-2 col-form-label"> Ranking Nacional:</label>
-      <input type="number" placeholder="" class="form-control"></p>
-      </div>
-    <div class= "form-gruop row">
-      <p><label for="" class="col-2 col-form-label"> Numero de alumnos:</label>
-      <input type="number" placeholder="" class="form-control"></p>
-      </div>
+
+    <div class="form-group">
+      <label for="rankingNacional">Ranking Nacional:</label>
+      <input type="text" name="rankingNacional" class="form-control" placeholder="Ranking Nacional">
+    </div>
+    <div class="form-group">
+      <label for="numeroDeAlumnos">Número de alumnos:</label>
+      <input type="text" class="form-control" placeholder="" name="numeroDeAlumnos">
+    </div>
+
     <div class= "form-gruop row">
       <p><label for=""> Con posgrado:</label></p>
-      <p><label for="" class="col-2 col-form-label"> Disponible </label>
-      <input type="text" placeholder="SI/NO"  class="form-control">
+      <p><label for="disponible" class="col-2 col-form-label"> Disponible </label>
+      <input type="text" placeholder="SI/NO"  class="form-control" name="disponible">
       <label for="" class="col-2 col-form-label"> cantidad </label>
-      <input type="number" placeholder=""  class="form-control"></p>
-      </div>
-    <div class= "form-gruop row">
-      <p><label for="" class="col-2 col-form-label"> Prestigio:</label>
-      <input type="number" placeholder=""  class="form-control"></p>
-      </div>
-    <div class= "form-gruop row">
-      <p><label for="" class="col-2 col-form-label"> imagen:</label>
-      <input type="text" placeholder=""  class="form-control"></p>
+      <input type="text" placeholder=""  class="form-control" name="cantidad"></p>
     </div>
-      <div>
-        <input type= "submit">
-      </div>
-    </form>
-  </div>
+
+    <div class="form-group">
+      <label for="prestigio">Prestigio:</label>
+      <input type="text" class="form-control" placeholder="" name="prestigio">
+    </div>
+    <div class="form-group">
+      <label for="imagen">Imagen:</label>
+      <input type="text" name="imagen" class="form-control" placeholder="URL de imagen">
+    </div>
+
+    <div>
+      <button type="submit" name="button" class="btn btn-primary">Guardar</button>
+    </div>
+  </form>
 </div>
-
-
-
-
-</section>
