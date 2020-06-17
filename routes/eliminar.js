@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   	}
   });
 });
-router.get('/d', function(req, res, next) { //metodo que elimina
+router.post('/d', function(req, res, next) { //metodo que elimina
 	//console.log(req.body);
   univ.deleteOne(
   	{'nombreCompleto': req.body.nombreCompleto},
