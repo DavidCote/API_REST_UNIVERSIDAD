@@ -33,26 +33,16 @@
       <input type="text" id="siglas2" name="siglas2" class="form-control" value="{{siglas}}">
     </div>
 
-    <div class= "form-gruop ">
+    <div class= "form-gruop row">
       <p><label for=""> Nivel:</label></p>
-      <p>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="Licenciatura2" name="Licenciatura2"  value= "true">
-          <label for="Licenciatura2" class="form-check-label">Licenciatura</label>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="Maestria2" name="Maestria2" @checked={{this.Maestria}}>
-          <label for="Licenciatura2" class="form-check-label">Maestria</label>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="Doctorado2" name="Doctorado2" @checked={{this.Doctorado}}>
-          <label for="Licenciatura2" class="form-check-label">Doctorado</label>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="PosDoctorado2" name="PosDoctorado2" @checked={{this.PosDoctorado}}>
-          <label for="Licenciatura2" class="form-check-label">PosDoctorado</label>
-        </div>
-        </p>
+      <p><label for="Licenciatura" class="col-2 col-form-label"> Licenciatura</label>
+      <input type="text" placeholder="true/false" class="form-control" id="Licenciatura2" name="Licenciatura2" value="{{nivel.Licenciatura}}">
+      <label for="" class="col-2 col-form-label"> Maestria</label>
+      <input type="text" placeholder="true/false" class="form-control" id="Maestria2" name="Maestria2" value="{{nivel.Maestria}}">
+      <label for="" class="col-2 col-form-label"> Doctorado</label>
+      <input type="text" placeholder="true/false" class="form-control" id="Doctorado2" name="Doctorado2" value = "{{nivel.Doctorado}}">
+      <label for="" class="col-2 col-form-label"> PosDoctorado</label>
+      <input type="text" placeholder="true/false" class="form-control" id="PosDoctorado2" name="PosDoctorado2" value="{{nivel.PosDoctorado}}"></p>
     </div>
 
     <div class="form-group">
@@ -64,13 +54,12 @@
       <input type="text" class="form-control" value="{{numeroDeAlumnos}}" id="numeroDeAlumnos2" name="numeroDeAlumnos2">
     </div>
 
-    <div class= "form-gruop">
+    <div class= "form-gruop row">
       <p><label for=""> Con posgrado:</label></p>
 
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="disponible2" name="disponible2"  @checked={{this.disponible}}>
-        <label for="disponible" class="form-check-label">Disponible</label>
-      </div>
+      <p><label for="disponible" class="col-2 col-form-label"> Disponible </label>
+      <input type="text" placeholder="true/false"  class="form-control" id="disponible2" name="disponible2" value = "{{conPosgrado.disponible}}">
+
       <label for="" class="col-2 col-form-label"> cantidad </label>
       <input type="text"   class="form-control" value="{{conPosgrado.cantidad}}" id="cantidad2" name="cantidad2"></p>
     </div>
