@@ -12,10 +12,10 @@ router.get('/', function(req, res, next) {
   	if(datos){
 		//res.render('modificar', {data:datos});
   		//res.status(200).json(datos);
-          request.get(process.env.HOST,(err,response,body)=>{
-              if(err) res.status(404).json({mensaje:"Error al consumir universidad"});
-              else res.render('premodificar',{'info':JSON.parse(body)});
-          })
+         request.get(process.env.HOST,(err,response,body)=>{
+            if(err) res.status(404).json({mensaje:"Error al consumir universidad"});
+            else res.render('premodificar',{'info':JSON.parse(body)});
+      })
   	}
   });
 });
@@ -25,25 +25,30 @@ router.post('/plantilla', function(req, res, next) {
     if(err) res.status(500).json({error:"Error"});
     if(datos){
       res.render('modificar', {data:datos});
+      console.log(datos);
       //res.status(200).json(datos);
+     /* request.get(process.env.HOST,(err,response,body)=>{
+            if(err) res.status(404).json({mensaje:"Error al consumir universidad"});
+            else res.render('modificar',{'info':JSON.parse(body)});
+      })*/
     }
   });
 });
 router.post('/m', function(req, res, next) { //metodo que modifica
-	//console.log(req.body);
+	console.log(req.body);
   univ.findOneAndUpdate(
-  	{'_id': req.body._id},
-  	{'nombreCompleto': req.body.nombreCompleto,
-    'siglas':  req.body.siglas,
-    'nivel.Licenciatura':  Boolean(req.body.Licenciatura),
-    'nivel.Maestria':  Boolean(req.body.Maestria),
-    'nivel.Doctorado':  Boolean(req.body.Doctorado),
-    'nivel.PosDoctorado':  Boolean(req.body.PosDoctorado),
- 	'rankingNacional':  req.body.rankingNacional ,
-  	'numeroDeAlumnos':  req.body.numeroDeAlumnos,
-    'conPosgrado.disponible':  Boolean(req.body.disponible),
-    'conPosgrado.cantidad':  req.body.cantidad,
-  	'prestigio':  req.body.prestigio},
+  	{'_id': req.body._id2},
+  	{'nombreCompleto': req.body.nombreCompleto2,
+    'siglas':  req.body.siglas2,
+    'nivel.Licenciatura':  Boolean(req.body.Licenciatura2),
+    'nivel.Maestria':  Boolean(req.body.Maestria2),
+    'nivel.Doctorado':  Boolean(req.body.Doctorado2),
+    'nivel.PosDoctorado':  Boolean(req.body.PosDoctorado2),
+ 	'rankingNacional':  req.body.rankingNacional2 ,
+  	'numeroDeAlumnos':  req.body.numeroDeAlumnos2,
+    'conPosgrado.disponible':  Boolean(req.body.disponible2),
+    'conPosgrado.cantidad':  req.body.cantidad2,
+  	'prestigio':  req.body.prestigio2},
   	(err,datos)=>{
   		if
   		(err) res.status(500).json({error:"Error"});	
