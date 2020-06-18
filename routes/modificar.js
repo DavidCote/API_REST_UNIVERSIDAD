@@ -14,12 +14,21 @@ router.get('/', function(req, res, next) {
   		//res.status(200).json(datos);
           request.get(process.env.HOST,(err,response,body)=>{
               if(err) res.status(404).json({mensaje:"Error al consumir universidad"});
-              else res.render('modificar',{'info':JSON.parse(body)});
+              else res.render('premodificar',{'info':JSON.parse(body)});
           })
   	}
   });
 });
-
+router.post('/plantilla', function(req, res, next) {
+  console.log(req.body);
+  univ.find({'_id':req.body._id},(err,datos)=>{
+    if(err) res.status(500).json({error:"Error"});
+    if(datos){
+      res.render('modificar', {data:datos});
+      //res.status(200).json(datos);
+    }
+  });
+});
 router.post('/m', function(req, res, next) { //metodo que modifica
 	//console.log(req.body);
   univ.findOneAndUpdate(
