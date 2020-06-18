@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 router.post('/d', function(req, res, next) { //metodo que elimina
 	//console.log(req.body);
   univ.deleteOne(
-  	{'nombreCompleto': req.body.nombreCompleto},
+  	{'_id': req.body.nombreCompleto},
   	(err,datos)=>{
   		if
   		(err) res.status(500).json({error:"Error"});	

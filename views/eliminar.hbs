@@ -18,7 +18,7 @@
   <label>Llena los campos</label>
   <form action= "/eliminar/d" method="POST">
   <div class="form-group">
-   <input type="text" class="form-control"  placeholder="nombre de la universidad a eliminar" id="nombreCompleto" name="nombreCompleto"></div>
+   <input type="text" class="form-control"  placeholder="Id de la universidad que se va a eliminar" id="nombreCompleto" name="nombreCompleto"></div>
 
   <button type="submit" class="btn btn-primary">Mandar</button>
 </form>
@@ -27,14 +27,16 @@
 <table class="table table-bordered">
           <thead>
           <tr>
-               <th > NOMBRES DE LAS UNIVERSIDADES</th>
+            <th scope="col"> #ID </th>
+               <th scope="col"> Nombre completo </th>
           </tr>
           </thead>
     <tbody>
 <div class = "container-fluid">
   {{#each info}}
       <tr>
-      <th >{{nombreCompleto}}</th>
+      <th scope="row">{{_id}}</th>
+      <td>{{nombreCompleto}}</td>
     </tr>
      {{/each}}
 </div>
